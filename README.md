@@ -7,7 +7,7 @@
 bikeshare_p3
 
 ### Description
-This will use data provided by Motivate (https://www.motivateco.com/), a bike share system provider for many major cities in the United States, to uncover bike share usage patterns. Users will be able to compare the system usage between three large cities: Chicago, New York City, and Washington, DC.This will provide the following information:
+This will use data provided by Motivate (https://www.motivateco.com/), a bike share system provider for many major cities in the United States, to uncover bike share usage patterns. Users will be able to compare the system usage between three large cities: Chicago, New York City, and Washington, DC. This will provide the following information:
 #1 Popular times of travel (i.e., occurs most often in the start time)
 
     most common month
