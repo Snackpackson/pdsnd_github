@@ -16,7 +16,7 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all" to apply no day filter
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+
     while True:
         try:
             cities = ['Chicago', 'New York City', 'Washington']
@@ -32,8 +32,6 @@ def get_filters():
         finally:
             print('\nYou selected {}.\n'.format(city.title()))
 
-
-    # TO DO: get user input for month (all, january, february, ... , june)
     while True:
         try:
             months = ['January', 'February', 'March', 'April', 'May', 'June']
@@ -49,7 +47,6 @@ def get_filters():
         finally:
             print('\nYou selected {}.\n'.format(month.title()))
 
-    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
         try:
             days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
@@ -101,21 +98,17 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    # TO DO: display the most common month
     common_month = df['month'].mode()[0]
     print('The most common month is:',common_month)
 
-    # TO DO: display the most common day of week
     common_day = df['day'].mode()[0]
     print('The most common day is:',common_day)
 
-    # TO DO: display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
     print('The most common start hour is:', df['hour'].mode()[0])
 
     print('\nThis took %s seconds.' % (time.time() - start_time))
     print('-'*40)
-
 
 def station_stats(df):
     """Displays statistics on the most popular stations and trip."""
@@ -123,21 +116,17 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    # TO DO: display most commonly used start station
     popular_start = df['Start Station'].mode()[0]
     print('The most commonly used start station is:\n{}'.format(popular_start))
 
-    # TO DO: display most commonly used end station
     popular_end = df['End Station'].mode()[0]
     print('\nThe most commonly used end station is:\n{}'.format(popular_end))
 
-    # TO DO: display most frequent combination of start station and end station trip
     df['combination'] = 'Start:' + df['Start Station'] + '\nEnd:' + df['End Station']
     print('\nThe most most frequent combination of start station and end station is:\n{}'.format((df['combination'].mode()[0])))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-
 
 def trip_duration_stats(df):
     """Displays statistics on the total and average trip duration."""
@@ -145,16 +134,12 @@ def trip_duration_stats(df):
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
-    # TO DO: display total travel time
     print('The sum of the trip durations is: {} seconds'.format(df['Trip Duration'].sum()))
 
-	# TO DO: display mean travel time
     print('The mean travel time is: {} seconds'.format(df['Trip Duration'].mean()))
-
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-
 
 def user_stats(df):
     """Displays statistics on bikeshare users."""
@@ -162,14 +147,11 @@ def user_stats(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
-    # TO DO: Display counts of user types
     print('The count of users by type is:\n{}\n'.format(df['User Type'].value_counts()))
 
-    # TO DO: Display counts of gender
     if 'Gender' in df.columns:
         print('The count of users by gender is:\n{}\n'.format(df['Gender'].value_counts()))
 
-    # TO DO: Display earliest, most recent, and most common year of birth
     if 'Birth Year' in df.columns:
         birth_year = df['Birth Year']
         print('The earliest year of birth is:', int(birth_year.min()))
@@ -178,7 +160,6 @@ def user_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-
 
 def main():
     while True:
@@ -203,7 +184,6 @@ def main():
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
-
 
 if __name__ == "__main__":
 	main()
