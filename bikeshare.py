@@ -27,8 +27,6 @@ def get_filters():
                 break
             else:
                 print('\nYour selection was not valid. Please try again.')
-        except Exception as e:
-            print('Please try again.\n An exception occurred: {}'.format(e))
         finally:
             print('\nYou selected {}.\n'.format(city.title()))
 
@@ -42,8 +40,6 @@ def get_filters():
                 break
             else:
                 print('\nYour selection was not valid. Please try again.')
-        except Exception as e:
-            print('Please try again.\n An exception occurred: {}'.format(e))
         finally:
             print('\nYou selected {}.\n'.format(month.title()))
 
@@ -57,8 +53,6 @@ def get_filters():
                 break
             else:
                 print('\nYour selection was not valid. Please try again.')
-        except Exception as e:
-            print('Please try again.\n An exception occurred: {}'.format(e))
         finally:
             print('\nYou selected {}.\n'.format(day.title()))
 
@@ -171,15 +165,24 @@ def main():
         trip_duration_stats(df)
         user_stats(df)
 
-        view_data = input('\nWould you like to view the data?\nEnter yes or no.\n>').lower()
+        view_data = input('\nWould you like to view the data?\nEnter yes or no.\n> ').lower()
+        print('\nYou selected {}.'.format(view_data))
         start_loc = 0
         while True:
-            if 'yes' in view_data:
-                print(df.iloc[start_loc:start_loc + 5])
-                start_loc += 5
-                view_data = input('\nWould you like to view more data?\nEnter yes or no.\n>').lower()
-            if 'yes' not in view_data:
-                break
+            try:
+                if 'yes' in view_data:
+                    print(df.iloc[start_loc:start_loc + 5])
+                    start_loc += 5
+                    view_data = input('\nWould you like to view more data?\nEnter yes or no.\n> ').lower()
+                else:
+                    print('\nYour selection was not valid. Please try again.')
+                    view_data = input('\nWould you like to view the data?\nEnter yes or no.\n> ').lower()
+            finally:
+                print('\nYou selected {}.'.format(view_data))
+                if 'yes' in view_data:
+                    print()
+                if 'no' in view_data:
+                    break
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
