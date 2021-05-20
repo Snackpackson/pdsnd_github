@@ -27,8 +27,6 @@ def get_filters():
                 break
             else:
                 print('\nYour selection was not valid. Please try again.')
-        except Exception as e:
-            print('Please try again.\n An exception occurred: {}'.format(e))
         finally:
             print('\nYou selected {}.\n'.format(city.title()))
 
@@ -44,8 +42,6 @@ def get_filters():
                 break
             else:
                 print('\nYour selection was not valid. Please try again.')
-        except Exception as e:
-            print('Please try again.\n An exception occurred: {}'.format(e))
         finally:
             print('\nYou selected {}.\n'.format(month.title()))
 
@@ -60,8 +56,6 @@ def get_filters():
                 break
             else:
                 print('\nYour selection was not valid. Please try again.')
-        except Exception as e:
-            print('Please try again.\n An exception occurred: {}'.format(e))
         finally:
             print('\nYou selected {}.\n'.format(day.title()))
 
